@@ -30,6 +30,10 @@ namespace Ambient
             {
                 return;
             }
+            if (!Director.IsTakeover && Director.SurgeStrength < 0.45f)
+            {
+                return;
+            }
             titles.Clear();
             foreach (var w in Resources.FindObjectsOfTypeAll<EditorWindow>())
             {
@@ -73,7 +77,7 @@ namespace Ambient
             {
                 var w = kv.Key;
                 i++;
-                if (w == null || w == current)
+                if (w == null || w == current || PanelPhysics.IsFalling(w))
                 {
                     continue;
                 }

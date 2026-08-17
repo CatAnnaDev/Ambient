@@ -91,6 +91,10 @@ namespace Ambient
             {
                 return;
             }
+            if (!Director.IsTakeover && Director.SurgeStrength < 0.4f)
+            {
+                return;
+            }
             glitching = true;
             current = Zalgo(Director.SurgeMessage);
             Refresh();

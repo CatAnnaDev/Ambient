@@ -29,6 +29,10 @@ namespace Ambient
             {
                 return;
             }
+            if (!Director.IsTakeover && Random.value > Director.SurgeStrength)
+            {
+                return;
+            }
             Spawn(Director.SurgeStrength);
         }
 
